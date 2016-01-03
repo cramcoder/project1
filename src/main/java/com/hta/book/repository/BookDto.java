@@ -8,7 +8,7 @@ public class BookDto {
 	private String  book_status;
 	private String  book_img;
 	private String  book_imdate;
-	private String  book_res;
+	private boolean  book_res;
 	private String  book_chunggu;
 	private String  book_isbn;
 	private String  book_title;          
@@ -49,10 +49,11 @@ public class BookDto {
 	public void setBook_imdate(String book_imdate) {
 		this.book_imdate = book_imdate;
 	}
-	public String getBook_res() {
+	
+	public boolean isBook_res() {
 		return book_res;
 	}
-	public void setBook_res(String book_res) {
+	public void setBook_res(boolean book_res) {
 		this.book_res = book_res;
 	}
 	public String getBook_chunggu() {

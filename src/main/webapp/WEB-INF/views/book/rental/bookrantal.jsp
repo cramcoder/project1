@@ -13,24 +13,54 @@
 </style>
 </head>
 <body>
-
-
-<table border="1" class="rental">
-	<tr>
-		<td>선택</td><td>등록번호</td><td>제목</td><td>출판사</td><td>저자</td><td>ISBN</td><td>입고날짜</td>
-	</tr>
-	<c:forEach items="${list}" var="dto" varStatus="status">
-	<tr>
-		<td><input type="checkbox" name="multbook" value=${dto.book_num }/></td>
-		<td>${dto.book_num}</td>
-		<td><a href="bookinformation?book_num=${dto.book_num}">${dto.book_title}</td>
-		<td>${dto.book_label}</td>
-		<td>${dto.book_author}</td>
-		<td>${dto.book_isbn}</td>
-		
-	</tr>
-	</c:forEach>
-</table>
+<form action="bookrantal" method="get"><!--로그인 또한  자체 dto가 필요하다. action는 같은 이름으로 해도된다. 구별은 method방식(즉 보내는 방법으로 구별) -->
+		<p>					<!-- 또한 만약 같은 GET방식으로 보내야할 상황이면 param로 전달하는 방식으로 구분해서 전달받을수 있다.-->
+			<label>
+				도서명 : <br/>
+				<input type="text" name="book_title" id="book_title" value="${dto.getBook_title()}"/>
+			</label>
+		</p>
+		<p>
+			<label>
+				출판사 : <br/>
+				<input type="text" name="book_label" id="book_label" value="${dto.getBook_label()}"/>
+			</label>
+		</p>
+		<p>
+			<label>
+				저자 : <input type="text" name="book_author" id="book_author" value="${dto.getBook_author()}"/>
+			</label>
+		</p>
+		<p>
+			<label>
+				장르 : <input type="text" name="book_genre" id="book_genre" value="${dto.getBook_genre()}"/>
+			</label>
+		</p>
+		<p>
+			<label>
+				ISBN : <input type="text" name="book_isbn" id="book_isbn" value="${dto.getBook_isbn()}"/>
+			</label>
+		</p>
+		<p>
+			<label>
+				파일 :<input type="text" name="book_img" id="book_img"/><br/><br/>
+			</label>
+		</p>
+		<p>
+			<label>
+				청구기호 :<input type="text" name="book_chunggu" id="book_chunggu" value="${dto.getBook_chunggu()}"/><br/><br/>
+			</label>
+		</p>
+		<p>
+			<label>
+				소장위치 :<input type="text" name="book_loc" id="book_loc" value="${dto.getBook_loc()}"/><br/><br/>
+			</label>
+		</p>
+		<input type="hidden" name="book_num" value="${dto.getBook_num()}"/>
+		<input type="hidden" name="id" value="${dto.getId() }"/>
+		<input type="submit" value="대여" />
+		<input type="button" value="목록보기" onclick="location.href='success.book'"/>
+	</form>
 <br/><br/>
 <input type="button" value="메인" onclick="location.href='main'"/>
 <input type="button" value="도서추가" onclick="location.href='bookinput'"/>

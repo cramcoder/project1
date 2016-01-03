@@ -70,7 +70,7 @@ Modernizr.load({
             <li><a href="#">도서</a>
               <ul>
                 <li><a href="bookinput">도서추가</a></li>
-                <li><a href="#">Dropdown Level 2b</a></li>
+                <li><a href="bookrantal">도서대여</a></li>
               </ul>
             </li>
             <li><a href="#">Dropdown Level 1b</a></li>
